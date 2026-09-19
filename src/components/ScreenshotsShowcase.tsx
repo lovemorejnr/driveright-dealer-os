@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -73,17 +74,29 @@ const SCREENSHOTS: ScreenshotItem[] = [
 ];
 
 export const ScreenshotsShowcase: React.FC<ScreenshotsShowcaseProps> = ({ onOpenDemo }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [{ currentIndex, direction }, setSlide] = useState({ currentIndex: 0, direction: 1 });
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   const current = SCREENSHOTS[currentIndex];
 
+  const goToSlide = (nextIndex: number, nextDirection?: number) => {
+    setSlide((previous) => {
+      if (nextIndex === previous.currentIndex) return previous;
+
+      return {
+        currentIndex: nextIndex,
+        direction: nextDirection ?? (nextIndex > previous.currentIndex ? 1 : -1),
+      };
+    });
+  };
+
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? SCREENSHOTS.length - 1 : prev - 1));
+    goToSlide(currentIndex === 0 ? SCREENSHOTS.length - 1 : currentIndex - 1, -1);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev === SCREENSHOTS.length - 1 ? 0 : prev + 1));
+    goToSlide(currentIndex === SCREENSHOTS.length - 1 ? 0 : currentIndex + 1, 1);
   };
 
   return (
@@ -134,7 +147,8 @@ export const ScreenshotsShowcase: React.FC<ScreenshotsShowcaseProps> = ({ onOpen
             <button
               key={item.id}
               type="button"
-              onClick={() => setCurrentIndex(idx)}
+              onClick={() => goToSlide(idx)}
+              aria-current={currentIndex === idx ? 'true' : undefined}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap min-h-[38px] cursor-pointer ${
                 currentIndex === idx
                   ? 'bg-slate-900 text-white shadow-sm'
@@ -150,13 +164,31 @@ export const ScreenshotsShowcase: React.FC<ScreenshotsShowcaseProps> = ({ onOpen
         <div className="relative bg-slate-950 flex flex-col items-center justify-center overflow-hidden group">
           {/* Main Image */}
           <div className="relative w-full aspect-16/9 sm:aspect-16/8.5 max-h-[580px] bg-slate-950 flex items-center justify-center overflow-hidden cursor-zoom-in">
-            <img 
-              src={current.image} 
-              alt={current.title}
-              title={`${current.title} - Click to zoom`}
-              className="w-full h-full object-contain sm:object-cover sm:object-top transition-transform duration-300"
-              loading="eager"
-            />
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.img
+                key={current.id}
+                src={current.image}
+                alt={current.title}
+                title={`${current.title} - Click to zoom`}
+                custom={direction}
+                initial={{
+                  x: prefersReducedMotion ? 0 : `${direction * 100}%`,
+                  opacity: prefersReducedMotion ? 0 : 0.7,
+                }}
+                animate={{ x: 0, opacity: 1, zIndex: 1 }}
+                exit={{
+                  x: prefersReducedMotion ? 0 : `${direction * -100}%`,
+                  opacity: prefersReducedMotion ? 0 : 0.7,
+                  zIndex: 0,
+                }}
+                transition={prefersReducedMotion
+                  ? { duration: 0.15 }
+                  : { type: 'spring', stiffness: 240, damping: 30, mass: 0.85 }
+                }
+                className="absolute inset-0 h-full w-full object-contain sm:object-cover sm:object-top"
+                loading="eager"
+              />
+            </AnimatePresence>
 
             {/* Click to zoom badge */}
             <div className="absolute top-3 right-3 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-950/80 backdrop-blur-xs text-white text-[11px] font-medium border border-white/10 shadow-lg">
