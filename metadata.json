@@ -1,0 +1,6 @@
+{
+  "name": "DriveRight Dealer OS",
+  "description": "The all-in-one dealer operating system and marketplace built for Nigerian dealerships.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
