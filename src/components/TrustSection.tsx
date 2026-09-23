@@ -134,6 +134,17 @@ export const TrustSection: React.FC = () => {
 
         </div>
 
+        {/* Micro-Link Banner to Car Marketplace */}
+        <div className="mt-12 text-center">
+          <a
+            href="#live-demo"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-orange-600 transition-colors py-2 px-4 rounded-xl hover:bg-slate-100/80"
+          >
+            <span>Looking for a car, not a CRM?</span>
+            <span className="text-orange-600 font-bold underline underline-offset-2">For customers →</span>
+          </a>
+        </div>
+
       </div>
     </section>
   );
