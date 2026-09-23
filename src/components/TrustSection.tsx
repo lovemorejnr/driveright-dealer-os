@@ -1,139 +1,137 @@
 import React from 'react';
-import { ShieldCheck, Lock, Database, FileSpreadsheet, EyeOff, UserCheck, ArrowRight } from 'lucide-react';
+import { Eye, MapPin, Shield, CheckCircle2, Check } from 'lucide-react';
 
 export const TrustSection: React.FC = () => {
   return (
-    <section id="trust" className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+    <section id="trust" className="py-16 sm:py-24 bg-[#F8FAFC] border-b border-slate-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-orange-100/80 px-3 py-1 text-xs font-bold uppercase tracking-wider text-orange-900">
-            <ShieldCheck className="h-3.5 w-3.5 text-orange-600" />
-            Trust & Security
-          </div>
-
-          <h2 className="mt-4 text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-['Outfit']">
-            Verified dealers. Your data stays yours.
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-['Outfit']">
+            Trust &amp; proof
           </h2>
 
           <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-            Buyers trust the badge because it is earned, and dealers stay because we are explicit about what we do with what you put in.
+            How we earn confidence on every listing and every conversation
           </p>
         </div>
 
-        {/* 2 Big Trust Guarantee Cards (Responsive 1 col mobile, 2 col desktop) */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-          
-          {/* Card 1: How we verify dealers */}
-          <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6 sm:p-8 space-y-6">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-['Outfit']">
-                How we verify dealers
-              </h3>
+        {/* Top 3 Value Cards */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Transparency */}
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs">
+            <div className="h-10 w-10 rounded-xl bg-orange-50 border border-orange-200/60 flex items-center justify-center text-orange-600 mb-5">
+              <Eye className="h-5 w-5" />
             </div>
-
-            <div className="space-y-4 text-xs sm:text-sm">
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center shrink-0 mt-0.5">
-                  <UserCheck className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">Identity & business checks</h4>
-                  <p className="mt-1 text-slate-600 leading-relaxed">
-                    We verify CAC registration, physical showroom or compound location, and photo ID of the principal dealer so buyers know the inventory is authentic.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center shrink-0 mt-0.5">
-                  <ShieldCheck className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">Onboarding review</h4>
-                  <p className="mt-1 text-slate-600 leading-relaxed">
-                    New dealer accounts are reviewed by an in-person DriveRight agent in Lagos or Abuja before marketplace listings can be published to buyers.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg bg-orange-100 text-orange-700 flex items-center justify-center shrink-0 mt-0.5">
-                  <Lock className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">Ongoing compliance</h4>
-                  <p className="mt-1 text-slate-600 leading-relaxed">
-                    Odometer rollbacks, undisclosed accident history, or forged customs documentation result in immediate badge revocation and permanent marketplace suspension.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h3 className="text-lg font-bold text-slate-900 font-['Outfit']">
+              Transparency
+            </h3>
+            <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+              We surface key details upfront—pricing, specs, and context—so you can compare listings with clarity, not guesswork.
+            </p>
           </div>
 
-          {/* Card 2: Dealer Data Trust */}
-          <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-6 sm:p-8 space-y-6">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-['Outfit'] flex items-center gap-2">
-                <span>Dealer Data Trust</span>
-                <span className="inline-flex items-center gap-1 rounded bg-slate-200 text-slate-800 text-xs font-bold px-2 py-0.5">
-                  <Lock className="h-3 w-3" />
-                  Isolated Ledgers
-                </span>
-              </h3>
+          {/* Card 2: Rooted in Nigeria */}
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs">
+            <div className="h-10 w-10 rounded-xl bg-orange-50 border border-orange-200/60 flex items-center justify-center text-orange-600 mb-5">
+              <MapPin className="h-5 w-5" />
             </div>
-
-            <div className="space-y-4 text-xs sm:text-sm">
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg bg-slate-200 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
-                  <EyeOff className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">Your stock, your customers</h4>
-                  <p className="mt-1 text-slate-600 leading-relaxed">
-                    Another dealership never sees your purchase costs, buyer contact books, or margin figures. Every dealership runs in an isolated tenant database.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg bg-slate-200 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
-                  <FileSpreadsheet className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">Export whenever you want</h4>
-                  <p className="mt-1 text-slate-600 leading-relaxed">
-                    Your vehicle records, sales history and invoices leave in clean Excel or PDF spreadsheets at any moment, on your say-so. Zero platform lock-in.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg bg-slate-200 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
-                  <Database className="h-4 w-4" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">Real numbers only</h4>
-                  <p className="mt-1 text-slate-600 leading-relaxed">
-                    A metric we cannot reliably compute from your actual invoices and stock register is shown as unavailable, never as a misleading zero or guess.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <h3 className="text-lg font-bold text-slate-900 font-['Outfit']">
+              Rooted in Nigeria
+            </h3>
+            <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+              DriveRight Tech is built for local buyers and sellers—pricing in naira, dealers across major hubs, and a marketplace tuned to how Nigerians shop for cars.
+            </p>
           </div>
 
+          {/* Card 3: Consistent standards */}
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-xs">
+            <div className="h-10 w-10 rounded-xl bg-orange-50 border border-orange-200/60 flex items-center justify-center text-orange-600 mb-5">
+              <Shield className="h-5 w-5" />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 font-['Outfit']">
+              Consistent standards
+            </h3>
+            <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+              We expect listings and sellers to meet clear standards—what you see on DriveRight Tech should reflect what you get when you enquire or visit.
+            </p>
+          </div>
         </div>
 
-        {/* Micro-Link Banner to Car Marketplace */}
-        <div className="mt-12 text-center">
-          <a
-            href="#live-demo"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-orange-600 transition-colors py-2 px-4 rounded-xl hover:bg-slate-50"
-          >
-            <span>Looking for a car, not a CRM?</span>
-            <span className="text-orange-600 font-bold underline underline-offset-2">For customers →</span>
-          </a>
+        {/* Bottom 2 Detail Cards */}
+        <div className="mt-6 sm:mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          {/* Card 1: How we verify dealers */}
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+            <h3 className="text-xl font-bold text-slate-900 font-['Outfit']">
+              How we verify dealers
+            </h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Before dealers can represent themselves credibly on DriveRight Tech, we review their presence and documentation—not a one-time badge, but an expectation of professionalism.
+            </p>
+
+            <div className="flex items-center gap-2 text-xs sm:text-[13px] text-slate-500 font-medium pt-1">
+              <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 fill-emerald-100" />
+              <span>Example of what you&apos;ll see on profiles and listings after checks.</span>
+            </div>
+
+            <div className="space-y-3.5 pt-2 text-sm">
+              <div className="flex items-start gap-2.5">
+                <Check className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                <p className="text-slate-600 leading-relaxed">
+                  <strong className="font-semibold text-slate-900">Identity &amp; business checks</strong> — we verify who is selling and that they operate as a legitimate dealership or seller.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-2.5">
+                <Check className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                <p className="text-slate-600 leading-relaxed">
+                  <strong className="font-semibold text-slate-900">Onboarding review</strong> — new dealer accounts are reviewed before they can fully present inventory on the platform.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-2.5">
+                <Check className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                <p className="text-slate-600 leading-relaxed">
+                  <strong className="font-semibold text-slate-900">Ongoing compliance</strong> — serious policy breaches can lead to warnings, suspension, or removal to protect buyers.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-2.5">
+                <Check className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                <p className="text-slate-600 leading-relaxed">
+                  <strong className="font-semibold text-slate-900">CAC verification</strong> — every dealer must pass a Corporate Affairs Commission (CAC) registration check before they can publish any listing on DriveRight Tech.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Buyer safeguards */}
+          <div className="rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-8 space-y-5 shadow-xs">
+            <h3 className="text-xl font-bold text-slate-900 font-['Outfit']">
+              Buyer safeguards
+            </h3>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Your safety and confidence matter whether you&apos;re browsing, messaging, or ready to buy.
+            </p>
+
+            <ul className="space-y-3.5 pt-2 text-sm text-slate-600 leading-relaxed list-disc pl-5">
+              <li>
+                <strong className="font-semibold text-slate-900">Secure contact</strong> — use in-platform messaging where possible so you don&apos;t have to share personal details with strangers too early.
+              </li>
+              <li>
+                <strong className="font-semibold text-slate-900">Report &amp; escalation</strong> — use the Report button on any listing or dealer profile to flag suspicious behaviour; every report is reviewed and resolved through our internal review queue, so nothing you flag goes unanswered.
+              </li>
+              <li>
+                <strong className="font-semibold text-slate-900">Verify the vehicle</strong> — before paying any deposit, confirm the chassis/VIN, seller&apos;s proof of ownership, customs clearance documents, and vehicle history; make sure the details match the physical vehicle and avoid any listing where documents can&apos;t be independently verified.
+              </li>
+              <li>
+                <strong className="font-semibold text-slate-900">Never pay before inspecting</strong> — never pay a reservation fee or deposit before inspecting and verifying the vehicle in person.
+              </li>
+            </ul>
+          </div>
+
         </div>
 
       </div>

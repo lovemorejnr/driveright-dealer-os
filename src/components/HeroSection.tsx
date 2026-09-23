@@ -18,7 +18,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDemo }) => {
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-orange-200/90 bg-orange-50/80 px-3.5 py-1.5 text-xs font-semibold text-orange-900 shadow-2xs backdrop-blur-xs">
             <span className="tracking-wide uppercase font-bold text-[11px] text-orange-800">
-              Dealer Operating System
+              Auto Dealer
             </span>
           </div>
 
